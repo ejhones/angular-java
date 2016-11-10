@@ -21,10 +21,13 @@ App.controller('ReadCtrl', function($scope, Tipo, $route){
 });	
 
 App.controller('CreateCtrl', function($scope, Tipo, $location){
-	$scope.cadastrar = function(titulo){
+	 $scope.descricao = 'Descricao';
+	
+	$scope.cadastrar = function(){
 		var data = {
-			titulo: titulo
+			"descricao":  $scope.descricao
 		};
+		console.log('objeto pra salvar '. data);
 
 		Tipo.create(data).then(function(data){
 			$location.path('/');
@@ -34,6 +37,7 @@ App.controller('CreateCtrl', function($scope, Tipo, $location){
 
 App.controller('EditCtrl', function($scope, Tipo, $routeParams, $location){
 	var id = $routeParams.id;
+	console.log('=================meu id', id);
 	Tipo.profile(id).then(function(data){
 		$scope.item = data.data;
 	})

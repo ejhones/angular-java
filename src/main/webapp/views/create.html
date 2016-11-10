@@ -2,13 +2,14 @@
 	<h2>Cadastro de Tipo de Denuncia</h2>
 </div>
 <div class="row">
-<form class="form-horizontal" ng-submit="cadastrar(tipo)">
+<form class="form-horizontal" ng-submit="cadastrar()">
 	<div class="form-group">
-		<input type="text" ng-model="tipo" class="form-control" placeholder="Descricao">
+		<input type="text" ng-model="descricao" class="form-control">
 	</div>
 	<div class="form-group">
 		<button class="btn btn-success">Cadastrar</button>
 		<a href="#/" class="btn btn-warning">Cancelar</a>
 	</div>							
 </form>
+<label ng-bind="descricao"/>
 </div>

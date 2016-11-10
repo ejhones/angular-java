@@ -34,16 +34,25 @@ public class TipoController {
     @DELETE()
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String excluir(@PathParam("id") Integer id) {
+    public String excluir(@PathParam("id") Long id) {
+    	System.out.println("id para excluir"  + id);
     	tipoService.excluir(id);
     	return "Denunciante excluído com sucesso!";
     }
     
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public String salvar(Tipo tipo) {
     	tipoService.salvar(tipo);
     	return "Denunciante cadastrado com sucesso!";
+    }
+    
+    @POST
+    @Path("/consultar")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Denunciante> consultar(Tipo tipo){
+    	
+    	return tipoService.consultar(tipo);
     }
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import com.stefanini.model.Denunciante;
 import com.stefanini.model.Tipo;
 import com.stefanini.repository.TipoRepository;
 
@@ -22,8 +23,11 @@ public class TipoService {
 		return tipoRepository.lista();
 	}
 
-	public void excluir(Integer id) {
+	public void excluir(Long id) {
 		tipoRepository.excluir(id);
 	}
-
+	
+	public List<Denunciante> consultar(Tipo tipo) {
+		return tipoRepository.consultar(tipo);
+	}
 }
